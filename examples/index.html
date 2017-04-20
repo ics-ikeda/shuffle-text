@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShuffleElementText.js Example</title>
+  <script src="../src/ShuffleText.js" type="module"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=500px">
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+  <script>
+    function init() {
+      var arr = [];
+      for (var i = 0; i < 10; i++) {
+        arr[i] = new ShuffleText(document.getElementById('text' + i));
+      }
+      for (var i = 0; i < arr.length; i++) {
+        $('#text' + i)
+          .attr('data-index', i)
+          .hover(function () {
+            arr[$(this).attr('data-index')].start();
+          }, function () {
+            arr[$(this).attr('data-index')].start();
+          });
+
+        arr[i].start();
+
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Ropa Sans', cursive;
+    }
+
+    h1 {
+      font-size: 16px;
+      cursor: pointer;
+      color: #900;
+    }
+
+    p, li {
+      font-size: 12px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    li:hover {
+      color: #900;
+    }
+
+    ul {
+      list-style-position: inside;
+      padding: 0;
+      line-height: 2;
+    }
+  </style>
+</head>
+
+<body onload="init();">
+<h1 id="text0">This is a ShuffleElementText.js Examle</h1>
+<div style="width:465px">
+  <ul style="float:left; width:230px;">
+    <li id="text1">2012/02/04 TOP PAGE UPDATE.</li>
+    <li id="text2">2012/02/03 ABOUT PAGE UPDATE.</li>
+    <li id="text3">2012/02/02 CONTACT PAGE UPDATE.</li>
+    <li id="text4">2012/01/30 NEWS PAGE UPDATE.</li>
+  </ul>
+  <ul style="float:right; width:230px;">
+    <li id="text5">2012/01/25 INDEX PAGE UPDATE.</li>
+    <li id="text6">2012/01/20 NEWS PAGE UPDATE.</li>
+    <li id="text7">2012/01/16 ABOUT PAGE UPDATE.</li>
+    <li id="text8">2012/01/12 LAUNCHED.</li>
+  </ul>
+  <br style="clear:both;">
+</div>
+<p id="text9">ShuffleElementText.js is under MIT Lisence.</p>
+<p id="copyright">&copy; copyright 2012, <a href="http://clockmaker.jp/">clockmaker.jp</a></p>
+</body>
+</html>
