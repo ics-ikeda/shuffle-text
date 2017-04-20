@@ -1,0 +1,10 @@
+{
+  "name": "shuffle-text",
+  "version": "0.0.1",
+  "devDependencies": {
+    "typescript": "^2.2.2"
+  },
+  "scripts": {
+    "serve": "tsc -p ./ -w"
+  }
+}
