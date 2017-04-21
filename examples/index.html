@@ -2,18 +2,21 @@
 <html>
 <head>
   <title>ShuffleElementText.js Example</title>
-  <script src="../src/ShuffleText.js" type="module"></script>
+  <script src="../build/shuffle-text.js"></script>
   <script
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
     crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=500px">
+  <meta name="viewport" content="width=device-width">
   <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   <script>
+
+    console.log();
+    console.log(ShuffleText);
     function init() {
       var arr = [];
       for (var i = 0; i < 10; i++) {
-        arr[i] = new ShuffleText(document.getElementById('text' + i));
+        arr[i] = new effects.ShuffleText(document.getElementById('text' + i));
       }
       for (var i = 0; i < arr.length; i++) {
         $('#text' + i)

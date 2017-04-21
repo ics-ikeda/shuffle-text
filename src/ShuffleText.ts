@@ -27,7 +27,6 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 /**
  * DOMエレメント用ランダムテキストクラス
  * @param DOMエレメント
@@ -108,7 +107,7 @@ export class ShuffleText {
     }
     this._element.innerHTML = str;
 
-    if (this.isRunning == true) {
+    if (this.isRunning === true) {
       requestAnimationFrame(()=> {
         this._onInterval();
       });
