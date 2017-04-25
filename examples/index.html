@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
   <title>ShuffleElementText.js Example</title>
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'/>
   <script src="../build/shuffle-text.js"></script>
   <script
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
     crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width">
-  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   <script>
-
     function init() {
       var arr = [];
       for (var i = 0; i < 10; i++) {
-        arr[i] = new clockmaker.ShuffleText(document.getElementById('text' + i));
+        arr[i] = new clockmaker.ShuffleText(document.querySelector('#text' + i));
       }
       for (var i = 0; i < arr.length; i++) {
         $('#text' + i)
-          .attr('data-index', i)
+          .data('index', i)
           .hover(function () {
-            arr[$(this).attr('data-index')].start();
+            arr[$(this).data('index')].start();
           }, function () {
-            arr[$(this).attr('data-index')].start();
+            arr[$(this).data('index')].start();
           });
-
         arr[i].start();
-
       }
     }
   </script>
@@ -60,7 +58,7 @@
 </head>
 
 <body onload="init();">
-<h1 id="text0">This is a shuffle-text.js Examle</h1>
+<h1 id="text0">This is a shuffle-text.js Example</h1>
 <div style="width:465px">
   <ul style="float:left; width:230px;">
     <li id="text1">2012/02/04 TOP PAGE UPDATE.</li>
