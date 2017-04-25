@@ -1,2 +1,7 @@
-demo/
+examples/
 src/
+.editorconfig
+bs-config.json
+rollup.config.js
+tsconfig.json
+yarn.lock

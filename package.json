@@ -1,13 +1,13 @@
 {
   "name": "shuffle-text",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devDependencies": {
     "lite-server": "^2.3.0",
     "rollup": "^0.41.6",
     "rollup-plugin-typescript": "^0.8.1",
     "uglify-js": "^2.8.22"
   },
-
+  "main" : "build/shuffle-text.js",
   "scripts": {
     "lite": "lite-server",
     "minify": "uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
