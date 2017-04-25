@@ -10,7 +10,7 @@ export default {
   targets: [
     {
       format: 'umd',
-      moduleName: 'clockmaker',
+      moduleName: 'ShuffleText',
       dest: 'build/shuffle-text.js'
     },
     {

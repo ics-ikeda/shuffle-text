@@ -5,3 +5,5 @@ bs-config.json
 rollup.config.js
 tsconfig.json
 yarn.lock
+.idea
+.npmignore

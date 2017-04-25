@@ -3,3 +3,5 @@ npm-debug.log
 thumbs.db
 .DS_Store
 .idea
+*.map
+/build/**.js.map

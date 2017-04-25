@@ -30,7 +30,7 @@
  * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
  * @author Yasunobu Ikeda
  */
-export class ShuffleText {
+export default class ShuffleText {
 
   /** The string for random text. ランダムテキストに用いる文字列です。 */
   public sourceRandomCharacter: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

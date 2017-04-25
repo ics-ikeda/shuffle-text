@@ -11,10 +11,11 @@
     integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
     crossorigin="anonymous"></script>
   <script>
+    console.log(clockmaker)
     function init() {
       var arr = [];
       for (var i = 0; i < 10; i++) {
-        arr[i] = new clockmaker.ShuffleText(document.querySelector('#text' + i));
+        arr[i] = new ShuffleText(document.querySelector('#text' + i));
       }
       for (var i = 0; i < arr.length; i++) {
         $('#text' + i)
