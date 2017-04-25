@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": true,
     "target": "es5",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators" : true,
-    "lib": [
-      "es2015",
-      "dom"
-    ]
+    "experimentalDecorators" : true
   },
   "files": [
     "src/ShuffleText.ts"

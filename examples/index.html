@@ -11,12 +11,10 @@
   <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   <script>
 
-    console.log();
-    console.log(ShuffleText);
     function init() {
       var arr = [];
       for (var i = 0; i < 10; i++) {
-        arr[i] = new effects.ShuffleText(document.getElementById('text' + i));
+        arr[i] = new clockmaker.ShuffleText(document.getElementById('text' + i));
       }
       for (var i = 0; i < arr.length; i++) {
         $('#text' + i)
@@ -62,7 +60,7 @@
 </head>
 
 <body onload="init();">
-<h1 id="text0">This is a ShuffleElementText.js Examle</h1>
+<h1 id="text0">This is a shuffle-text.js Examle</h1>
 <div style="width:465px">
   <ul style="float:left; width:230px;">
     <li id="text1">2012/02/04 TOP PAGE UPDATE.</li>
@@ -78,7 +76,7 @@
   </ul>
   <br style="clear:both;">
 </div>
-<p id="text9">ShuffleElementText.js is under MIT Lisence.</p>
+<p id="text9">shuffle-text.js is under MIT Lisence.</p>
 <p id="copyright">&copy; copyright 2012, <a href="http://clockmaker.jp/">clockmaker.jp</a></p>
 </body>
 </html>

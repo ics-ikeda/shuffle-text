@@ -2,16 +2,14 @@
   "name": "shuffle-text",
   "version": "0.0.1",
   "devDependencies": {
-    "babelify": "^7.3.0",
-    "browserify": "^14.3.0",
     "lite-server": "^2.3.0",
-    "typescript": "^2.2.2",
+    "rollup": "^0.41.6",
+    "rollup-plugin-typescript": "^0.8.1",
     "uglify-js": "^2.8.22"
   },
   "scripts": {
     "lite": "lite-server",
-    "serve": "tsc -p ./ -w",
-    "minify": "uglifyjs ./build/shuffle-text.js --mangle --compress --comments --output build/shuffle-text.min.js",
-    "build:develop": "browserify ./src/ShuffleText.js -o ./build/shuffle-text.js --standalone effects --transform --debug"
+    "minify": "uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
+    "build:rollup": "rollup -c"
   }
 }
