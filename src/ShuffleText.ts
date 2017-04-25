@@ -3,7 +3,7 @@
  * Visit http://clockmaker.jp/ for documentation, updates and examples.
  *
  *
- * Copyright (c) 2012 Yasunobu Ikeda
+ * Copyright (c) 2012-2017 Yasunobu Ikeda
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -28,43 +28,48 @@
  */
 
 /**
- * DOMエレメント用ランダムテキストクラス
- * @param DOMエレメント
+ * ShuffleText is random text effect class for DOM Elements.
+ * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
+ * @author Yasunobu Ikeda
  */
 export class ShuffleText {
 
-  /** ランダムテキストに用いる文字列 */
-  public sourceRandomCharacter:string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-  /** 空白に用いる文字列 */
-  public emptyCharacter:string = "-";
-  /** 再生中かどうかを示すブール値 */
-  public isRunning:boolean = false;
-  /** エフェクトの実行時間 */
-  public duration:number = 600;
-  private _originalStr:string = "";
-  private _originalLength:number = 0;
-  private _timeCurrent:number = 0;
-  private _timeStart:number = 0;
-  private _randomIndex:number[] = [];
-  private _element:HTMLElement;
+  /** The string for random text. ランダムテキストに用いる文字列です。 */
+  public sourceRandomCharacter: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  /** The string for effect space. 空白に用いる文字列です。 */
+  public emptyCharacter: string = '-';
+  /** It is running flag. 再生中かどうかを示すブール値です。 */
+  public isRunning: boolean = false;
+  /** The milli seconds of effect time. エフェクトの実行時間です。 */
+  public duration: number = 600;
+  private _originalStr: string = '';
+  private _originalLength: number = 0;
+  private _timeCurrent: number = 0;
+  private _timeStart: number = 0;
+  private _randomIndex: number[] = [];
+  private _element: HTMLElement;
 
-  constructor(element:HTMLElement) {
+  /**
+   * Constructor.
+   * @param element DOMエレメント
+   */
+  constructor(element: HTMLElement) {
     this._element = element;
     this.setText(element.innerHTML);
   }
 
   /** テキストを設定します。 */
-  public setText(text:string):void {
+  public setText(text: string): void {
     this._originalStr = text;
     this._originalLength = text.length;
   }
 
   /** 再生を開始します。 */
-  public start():void {
+  public start(): void {
     this.stop();
 
     this._randomIndex = [];
-    let str = "";
+    let str = '';
     for (let i = 0; i < this._originalLength; i++) {
       let rate = i / this._originalLength;
       this._randomIndex[i] = Math.random() * (1 - rate) + rate;
@@ -74,7 +79,7 @@ export class ShuffleText {
     this._timeStart = new Date().getTime();
     this.isRunning = true;
 
-    requestAnimationFrame(()=> {
+    requestAnimationFrame(() => {
       this._onInterval();
     });
 
@@ -82,15 +87,19 @@ export class ShuffleText {
   }
 
   /** 停止します。 */
-  public stop():void {
+  public stop(): void {
     this.isRunning = false;
   }
 
-  private _onInterval():void {
+  /**
+   * インターバルハンドラーです。
+   * @private
+   */
+  private _onInterval(): void {
     this._timeCurrent = new Date().getTime() - this._timeStart;
     const percent = this._timeCurrent / this.duration;
 
-    let str = "";
+    let str = '';
     for (let i = 0; i < this._originalLength; i++) {
       if (percent >= this._randomIndex[i]) {
         str += this._originalStr.charAt(i);
@@ -108,7 +117,7 @@ export class ShuffleText {
     this._element.innerHTML = str;
 
     if (this.isRunning === true) {
-      requestAnimationFrame(()=> {
+      requestAnimationFrame(() => {
         this._onInterval();
       });
     }
