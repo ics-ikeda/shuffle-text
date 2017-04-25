@@ -7,9 +7,19 @@
     "rollup-plugin-typescript": "^0.8.1",
     "uglify-js": "^2.8.22"
   },
+
   "scripts": {
     "lite": "lite-server",
     "minify": "uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
     "build:rollup": "rollup -c"
-  }
+  },
+  "license": "MIT",
+  "author": "Yasunobu Ikeda <ikeda@ics-web.jp> (http://clockmaker.jp/labs/)",
+  "keywords": [
+    "JavaScript",
+    "TypeScript",
+    "text",
+    "effect",
+    "html5"
+  ]
 }
