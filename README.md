@@ -3,7 +3,7 @@
 
 This is the JavaScript library for text effect such as Flash contents.
 
-
+![](images/shuffle-text-example.gif)
 
 ## Setup
 

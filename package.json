@@ -1,6 +1,6 @@
 {
   "name": "shuffle-text",
-  "version": "0.0.4",
+  "version": "0.1.1",
   "devDependencies": {
     "lite-server": "^2.3.0",
     "rollup": "^0.41.6",
@@ -15,11 +15,11 @@
   },
   "license": "MIT",
   "author": "Yasunobu Ikeda <ikeda@ics-web.jp> (http://clockmaker.jp/labs/)",
+  "homepage": "https://github.com/ics-ikeda/shuffle-text",
   "keywords": [
     "JavaScript",
     "TypeScript",
-    "text",
-    "effect",
-    "html5"
+    "shuffle-text",
+    "text effect"
   ]
 }
