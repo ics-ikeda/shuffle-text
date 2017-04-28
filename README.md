@@ -7,16 +7,24 @@ This is the JavaScript library for text effect such as Flash contents.
 
 ## Setup
 
+
+### Script Install
+
+```html
+<script src="shuffle-text.js"></script>
+```
+
+
 ### NPM Install
 
 ```bash
 $ npm install shuffle-text
 ```
 
-### Script Install
+If you use this js library in es6.
 
-```html
-<script src="shuffle-text.js"></script>
+```js
+import ShuffleText from 'shuffle-text';
 ```
 
 ## Demo
@@ -57,3 +65,26 @@ http://clockmaker.jp/labs/120203_html5_shuffletext/dom.html
 ![](http://ics-web.jp/imgs/140220_pollenmap_4.png)
 
 [日本全国花粉飛散マップ Pollen Map in Japan \| ICS](http://ics-web.jp/projects/pollenmap/)
+
+
+## APIs
+
+Constructor
+
+```js
+new ShuffleText(element)
+```
+
+Methods
+
+- `start(): void`
+- `stop(): void`
+- `setText(text: string): void`
+- `dispose(): void`
+
+Properties
+
+- `isRunning: boolean`  / It is running flag. 再生中かどうかを示すブール値です。
+- `sourceRandomCharacter: string` / The string for random text. ランダムテキストに用いる文字列です。
+- `emptyCharacter: string` / The string for effect space. 空白に用いる文字列です。
+- `duration: number` / The milli seconds of effect time. エフェクトの実行時間です。
