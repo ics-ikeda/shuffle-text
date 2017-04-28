@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": true,
+    "declaration": true,
     "target": "es5",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators" : true

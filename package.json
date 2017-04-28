@@ -1,17 +1,22 @@
 {
   "name": "shuffle-text",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  "repository": "ics-ikeda/shuffle-text",
   "devDependencies": {
     "lite-server": "^2.3.0",
     "rollup": "^0.41.6",
     "rollup-plugin-typescript": "^0.8.1",
+    "rollup-watch": "^3.2.2",
     "uglify-js": "^2.8.22"
   },
-  "main" : "build/shuffle-text.js",
+  "main": "build/shuffle-text.js",
+  "jsnext:main": "build/shuffle-text.module.js",
+  "module": "build/shuffle-text.module.js",
   "scripts": {
     "lite": "lite-server",
-    "minify": "uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
-    "build:rollup": "rollup -c"
+    "release": "rollup -c && uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
+    "build": "rollup -c",
+    "watch": "rollup -c --watch"
   },
   "license": "MIT",
   "author": "Yasunobu Ikeda <ikeda@ics-web.jp> (http://clockmaker.jp/labs/)",
