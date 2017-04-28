@@ -41,19 +41,34 @@
 	     * @param element DOMエレメント
 	     */
 	    function ShuffleText(element) {
-	        /** The string for random text. ランダムテキストに用いる文字列です。 */
+	        /**
+	         * The string for random text.
+	         * ランダムテキストに用いる文字列です。
+	         * @type {string}
+	         * @default 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+	         */
 	        this.sourceRandomCharacter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-	        /** The string for effect space. 空白に用いる文字列です。 */
+	        /**
+	         * The string for effect space.
+	         * 空白に用いる文字列です。
+	         * @type {string}
+	         * @default '-'
+	         */
 	        this.emptyCharacter = '-';
-	        /** It is running flag. 再生中かどうかを示すブール値です。 */
-	        this.isRunning = false;
-	        /** The milli seconds of effect time. エフェクトの実行時間です。 */
+	        /**
+	         * The milli seconds of effect time.
+	         * エフェクトの実行時間です。
+	         * @type {number}
+	         * @default 600
+	         */
 	        this.duration = 600;
+	        this._isRunning = false;
 	        this._originalStr = '';
 	        this._originalLength = 0;
 	        this._timeCurrent = 0;
 	        this._timeStart = 0;
 	        this._randomIndex = [];
+	        this._requestAnimationFrameId = 0;
 	        this._element = element;
 	        this.setText(element.innerHTML);
 	    }
@@ -62,6 +77,17 @@
 	        this._originalStr = text;
 	        this._originalLength = text.length;
 	    };
+	    Object.defineProperty(ShuffleText.prototype, "isRunning", {
+	        /**
+	         * It is running flag. 再生中かどうかを示すブール値です。
+	         * @returns {boolean}
+	         */
+	        get: function () {
+	            return this.isRunning;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /** 再生を開始します。 */
 	    ShuffleText.prototype.start = function () {
 	        var _this = this;
@@ -74,15 +100,29 @@
 	            str += this.emptyCharacter;
 	        }
 	        this._timeStart = new Date().getTime();
-	        this.isRunning = true;
-	        requestAnimationFrame(function () {
+	        this._isRunning = true;
+	        this._requestAnimationFrameId = requestAnimationFrame(function () {
 	            _this._onInterval();
 	        });
 	        this._element.innerHTML = str;
 	    };
 	    /** 停止します。 */
 	    ShuffleText.prototype.stop = function () {
-	        this.isRunning = false;
+	        this._isRunning = false;
+	        cancelAnimationFrame(this._requestAnimationFrameId);
+	    };
+	    ShuffleText.prototype.dispose = function () {
+	        this.sourceRandomCharacter = null;
+	        this.emptyCharacter = null;
+	        this._isRunning = false;
+	        this.duration = 0;
+	        this._originalStr = null;
+	        this._originalLength = 0;
+	        this._timeCurrent = 0;
+	        this._timeStart = 0;
+	        this._randomIndex = null;
+	        this._element = null;
+	        this._requestAnimationFrameId = 0;
 	    };
 	    /**
 	     * インターバルハンドラーです。
@@ -106,11 +146,11 @@
 	        }
 	        if (percent > 1) {
 	            str = this._originalStr;
-	            this.isRunning = false;
+	            this._isRunning = false;
 	        }
 	        this._element.innerHTML = str;
-	        if (this.isRunning === true) {
-	            requestAnimationFrame(function () {
+	        if (this._isRunning === true) {
+	            this._requestAnimationFrameId = requestAnimationFrame(function () {
 	                _this._onInterval();
 	            });
 	        }

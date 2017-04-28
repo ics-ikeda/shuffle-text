@@ -31,21 +31,38 @@
  * @author Yasunobu Ikeda
  */
 export default class ShuffleText {
-
-  /** The string for random text. ランダムテキストに用いる文字列です。 */
+  /**
+   * The string for random text.
+   * ランダムテキストに用いる文字列です。
+   * @type {string}
+   * @default 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+   */
   public sourceRandomCharacter: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-  /** The string for effect space. 空白に用いる文字列です。 */
+  /**
+   * The string for effect space.
+   * 空白に用いる文字列です。
+   * @type {string}
+   * @default '-'
+   */
   public emptyCharacter: string = '-';
-  /** It is running flag. 再生中かどうかを示すブール値です。 */
-  public isRunning: boolean = false;
-  /** The milli seconds of effect time. エフェクトの実行時間です。 */
+
+  /**
+   * The milli seconds of effect time.
+   * エフェクトの実行時間です。
+   * @type {number}
+   * @default 600
+   */
   public duration: number = 600;
+
+  private _isRunning: boolean = false;
   private _originalStr: string = '';
   private _originalLength: number = 0;
   private _timeCurrent: number = 0;
   private _timeStart: number = 0;
   private _randomIndex: number[] = [];
   private _element: HTMLElement;
+  private _requestAnimationFrameId: number = 0;
+
 
   /**
    * Constructor.
@@ -62,6 +79,14 @@ export default class ShuffleText {
     this._originalLength = text.length;
   }
 
+  /**
+   * It is running flag. 再生中かどうかを示すブール値です。
+   * @returns {boolean}
+   */
+  public get isRunning(): boolean {
+    return this.isRunning;
+  }
+
   /** 再生を開始します。 */
   public start(): void {
     this.stop();
@@ -75,9 +100,9 @@ export default class ShuffleText {
     }
 
     this._timeStart = new Date().getTime();
-    this.isRunning = true;
+    this._isRunning = true;
 
-    requestAnimationFrame(() => {
+    this._requestAnimationFrameId = requestAnimationFrame(() => {
       this._onInterval();
     });
 
@@ -86,7 +111,22 @@ export default class ShuffleText {
 
   /** 停止します。 */
   public stop(): void {
-    this.isRunning = false;
+    this._isRunning = false;
+    cancelAnimationFrame(this._requestAnimationFrameId);
+  }
+
+  public dispose(): void {
+    this.sourceRandomCharacter = null;
+    this.emptyCharacter = null;
+    this._isRunning = false;
+    this.duration = 0;
+    this._originalStr = null;
+    this._originalLength = 0;
+    this._timeCurrent = 0;
+    this._timeStart = 0;
+    this._randomIndex = null;
+    this._element = null;
+    this._requestAnimationFrameId = 0;
   }
 
   /**
@@ -110,12 +150,12 @@ export default class ShuffleText {
 
     if (percent > 1) {
       str = this._originalStr;
-      this.isRunning = false;
+      this._isRunning = false;
     }
     this._element.innerHTML = str;
 
-    if (this.isRunning === true) {
-      requestAnimationFrame(() => {
+    if (this._isRunning === true) {
+      this._requestAnimationFrameId = requestAnimationFrame(() => {
         this._onInterval();
       });
     }
