@@ -1,4 +1,5 @@
-# ShuffleText
+ShuffleText
+========
 
 [![Latest NPM release][npm-badge]][npm-badge-url]
 [![License][license-badge]][license-badge-url]
@@ -81,3 +82,14 @@ new ShuffleText(element)
 ```
 
 [API Reference](https://ics-ikeda.github.io/shuffle-text/classes/_shuffletext_.shuffletext.html) is here.
+
+
+
+[npm-badge]: https://img.shields.io/npm/v/shuffle-text.svg
+[npm-badge-url]: https://www.npmjs.com/package/shuffle-text
+[license-badge]: https://img.shields.io/npm/l/shuffle-text.svg
+[license-badge-url]: ./LICENSE
+[dependencies-badge]: https://img.shields.io/david/ics-ikeda/shuffle-text.svg
+[dependencies-badge-url]: https://david-dm.org/ics-ikeda/shuffle-text
+[devDependencies-badge]: https://img.shields.io/david/dev/ics-ikeda/shuffle-text.svg
+[devDependencies-badge-url]: https://david-dm.org/ics-ikeda/shuffle-text#info=devDependencies
