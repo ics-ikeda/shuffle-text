@@ -7,6 +7,7 @@
     "rollup": "^0.41.6",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-watch": "^3.2.2",
+    "typedoc": "^0.6.0",
     "typescript": "^2.3.2",
     "uglify-js": "^2.8.22"
   },
@@ -19,7 +20,8 @@
     "release": "rollup -c && uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
-    "build:d.ts": "tsc --declarationDir ./build"
+    "build:d.ts": "tsc --declarationDir ./build",
+    "build:docs": "typedoc --out ./docs ./src"
   },
   "license": "MIT",
   "author": "Yasunobu Ikeda <ikeda@ics-web.jp> (http://clockmaker.jp/labs/)",
