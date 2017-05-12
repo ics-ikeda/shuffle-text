@@ -75,16 +75,4 @@ Constructor
 new ShuffleText(element)
 ```
 
-Methods
-
-- `start(): void`
-- `stop(): void`
-- `setText(text: string): void`
-- `dispose(): void`
-
-Properties
-
-- `isRunning: boolean`  / It is running flag. 再生中かどうかを示すブール値です。
-- `sourceRandomCharacter: string` / The string for random text. ランダムテキストに用いる文字列です。
-- `emptyCharacter: string` / The string for effect space. 空白に用いる文字列です。
-- `duration: number` / The milli seconds of effect time. エフェクトの実行時間です。
+[API Reference](docs/index.html) is here.

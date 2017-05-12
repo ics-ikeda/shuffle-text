@@ -4,41 +4,16 @@
 	(global.ShuffleText = factory());
 }(this, (function () { 'use strict';
 
-	/*
-	 * The MIT License
-	 *
-	 * ShuffleText by Yasunobu Ikeda. Feb 3, 2012
-	 * Visit http://clockmaker.jp/ for documentation, updates and examples.
-	 *
-	 * Copyright (c) 2012-2017 Yasunobu Ikeda
-	 *
-	 * Permission is hereby granted, free of charge, to any person obtaining a copy
-	 * of this software and associated documentation files (the "Software"), to deal
-	 * in the Software without restriction, including without limitation the rights
-	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 * copies of the Software, and to permit persons to whom the Software is
-	 * furnished to do so, subject to the following conditions:
-	 *
-	 * The above copyright notice and this permission notice shall be included in
-	 * all copies or substantial portions of the Software.
-	 *
-	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	 * THE SOFTWARE.
-	 */
 	/**
 	 * ShuffleText is random text effect class for DOM Elements.
 	 * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
 	 * @author Yasunobu Ikeda
+	 * @since 2012-02-07
 	 */
 	var ShuffleText = (function () {
 	    /**
 	     * Constructor.
-	     * @param element DOMエレメント
+	     * @param element DOMエレメントです。
 	     */
 	    function ShuffleText(element) {
 	        /**
@@ -57,7 +32,7 @@
 	        this.emptyCharacter = '-';
 	        /**
 	         * The milli seconds of effect time.
-	         * エフェクトの実行時間です。
+	         * エフェクトの実行時間（ミリ秒）です。
 	         * @type {number}
 	         * @default 600
 	         */
@@ -72,7 +47,10 @@
 	        this._element = element;
 	        this.setText(element.innerHTML);
 	    }
-	    /** テキストを設定します。 */
+	    /**
+	     * Set new strings. テキストを設定します。
+	     * @param text テキスト文字列です。
+	     */
 	    ShuffleText.prototype.setText = function (text) {
 	        this._originalStr = text;
 	        this._originalLength = text.length;
@@ -88,7 +66,7 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    /** 再生を開始します。 */
+	    /** Play effect. 再生を開始します。 */
 	    ShuffleText.prototype.start = function () {
 	        var _this = this;
 	        this.stop();
@@ -106,12 +84,17 @@
 	        });
 	        this._element.innerHTML = str;
 	    };
-	    /** 停止します。 */
+	    /** Stop effect. 停止します。 */
 	    ShuffleText.prototype.stop = function () {
 	        this._isRunning = false;
 	        cancelAnimationFrame(this._requestAnimationFrameId);
 	    };
+	    /**
+	     * Dispose this instance.
+	     * メモリ解放のためインスタンスを破棄します。
+	     */
 	    ShuffleText.prototype.dispose = function () {
+	        cancelAnimationFrame(this._requestAnimationFrameId);
 	        this.sourceRandomCharacter = null;
 	        this.emptyCharacter = null;
 	        this._isRunning = false;
