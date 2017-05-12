@@ -1,5 +1,10 @@
 # ShuffleText
 
+[![Latest NPM release][npm-badge]][npm-badge-url]
+[![License][license-badge]][license-badge-url]
+[![Dependencies][dependencies-badge]][dependencies-badge-url]
+[![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
+
 
 This is the JavaScript library for text effect such as Flash contents.
 
