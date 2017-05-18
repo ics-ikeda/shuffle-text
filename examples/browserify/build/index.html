@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>shuffle-text example</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="google" content="notranslate"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'/>
+  <script defer src="bundle.js"></script>
+
+  <style>
+    body {
+      font-family: 'Ropa Sans', sans-serif;
+    }
+
+    h1 {
+      font-size: 16px;
+      cursor: pointer;
+      color: #900;
+    }
+
+    p, li {
+      font-size: 12px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    li:hover {
+      color: #900;
+    }
+
+    ul {
+      list-style-position: inside;
+      padding: 0;
+      line-height: 2;
+    }
+
+    @media (min-width: 700px) {
+      .my-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .my-grid ul:nth-child(3n + 1) {
+        grid-column: 1;
+      }
+
+      .my-grid ul:nth-child(3n + 2) {
+        grid-column: 2;
+      }
+
+      .my-grid ul:nth-child(3n + 3) {
+        grid-column: 3;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+<h1 class="my-effect">This is a shuffle-text.js Example</h1>
+<div class="my-grid">
+
+  <ul>
+    <li class="my-effect">2017/05/04 TOP PAGE UPDATE.</li>
+    <li class="my-effect">2017/05/03 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2017/05/02 CONTACT PAGE UPDATE.</li>
+    <li class="my-effect">2017/05/30 NEWS PAGE UPDATE.</li>
+  </ul>
+
+  <ul>
+    <li class="my-effect">2017/01/25 INDEX PAGE UPDATE.</li>
+    <li class="my-effect">2017/01/20 NEWS PAGE UPDATE.</li>
+    <li class="my-effect">2017/01/16 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2017/01/12 LAUNCHED.</li>
+  </ul>
+
+  <ul>
+    <li class="my-effect">2012/02/04 TOP PAGE UPDATE.</li>
+    <li class="my-effect">2012/02/03 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2012/02/02 CONTACT PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/30 NEWS PAGE UPDATE.</li>
+  </ul>
+
+  <ul>
+    <li class="my-effect">2012/01/25 INDEX PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/20 NEWS PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/16 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/12 LAUNCHED.</li>
+  </ul>
+
+  <ul>
+    <li class="my-effect">2012/02/04 TOP PAGE UPDATE.</li>
+    <li class="my-effect">2012/02/03 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2012/02/02 CONTACT PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/30 NEWS PAGE UPDATE.</li>
+  </ul>
+
+  <ul>
+    <li class="my-effect">2012/01/25 INDEX PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/20 NEWS PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/16 ABOUT PAGE UPDATE.</li>
+    <li class="my-effect">2012/01/12 LAUNCHED.</li>
+  </ul>
+</div>
+<p class="my-effect">shuffle-text.js is under MIT Lisence.</p>
+<p>&copy; copyright 2012-2017, <a href="http://clockmaker.jp/">clockmaker.jp</a></p>
+</body>
+</html>
