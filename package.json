@@ -1,6 +1,6 @@
 {
   "name": "shuffle-text",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "repository": "ics-ikeda/shuffle-text",
   "devDependencies": {
     "lite-server": "^2.3.0",

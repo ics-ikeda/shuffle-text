@@ -1,11 +1,13 @@
-examples/
-src/
-.editorconfig
 bs-config.json
 rollup.config.js
 tsconfig.json
 yarn.lock
 .idea
+.editorconfig
 .npmignore
+.nojekyll
 images/
 docs/
+examples/
+src/
+
