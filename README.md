@@ -37,7 +37,7 @@ import ShuffleText from 'shuffle-text';
 
 ![](http://clockmaker.jp/blog/wp-content/uploads/2012/02/120207_shuffleelementtext.png)
 
-http://clockmaker.jp/labs/120203_html5_shuffletext/dom.html
+https://ics-ikeda.github.io/shuffle-text/examples/plain/
 
 ## Basic Usage Example
 
