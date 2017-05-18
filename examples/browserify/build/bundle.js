@@ -165,8 +165,7 @@
 
 
 },{}],2:[function(require,module,exports){
-const ShuffleText = require('shuffle-text');
-// import ShuffleText from "shuffle-text";
+var ShuffleText = require('shuffle-text');
 
 window.addEventListener('load', init);
 function init() {
@@ -195,4 +194,5 @@ function init() {
     effectList[i].start();
   }
 }
+
 },{"shuffle-text":1}]},{},[2]);
