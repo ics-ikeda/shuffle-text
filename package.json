@@ -7,9 +7,9 @@
     "rollup": "^0.41.6",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-watch": "^3.2.2",
-    "typedoc": "^0.6.0",
+    "typedoc": "^0.7.0",
     "typescript": "^2.3.2",
-    "uglify-js": "^2.8.22"
+    "uglify-js": "^3.0.8"
   },
   "main": "build/shuffle-text.js",
   "jsnext:main": "build/shuffle-text.module.js",
