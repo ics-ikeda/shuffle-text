@@ -2,6 +2,7 @@
  * ShuffleText is random text effect class for DOM Elements.
  * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
  * @author Yasunobu Ikeda
+ * @since 2012-02-07
  */
 export default class ShuffleText {
     /**
@@ -20,7 +21,7 @@ export default class ShuffleText {
     emptyCharacter: string;
     /**
      * The milli seconds of effect time.
-     * エフェクトの実行時間です。
+     * エフェクトの実行時間（ミリ秒）です。
      * @type {number}
      * @default 600
      */
@@ -35,20 +36,27 @@ export default class ShuffleText {
     private _requestAnimationFrameId;
     /**
      * Constructor.
-     * @param element DOMエレメント
+     * @param element DOMエレメントです。
      */
     constructor(element: HTMLElement);
-    /** テキストを設定します。 */
+    /**
+     * Set new strings. テキストを設定します。
+     * @param text テキスト文字列です。
+     */
     setText(text: string): void;
     /**
      * It is running flag. 再生中かどうかを示すブール値です。
      * @returns {boolean}
      */
     readonly isRunning: boolean;
-    /** 再生を開始します。 */
+    /** Play effect. 再生を開始します。 */
     start(): void;
-    /** 停止します。 */
+    /** Stop effect. 停止します。 */
     stop(): void;
+    /**
+     * Dispose this instance.
+     * メモリ解放のためインスタンスを破棄します。
+     */
     dispose(): void;
     /**
      * インターバルハンドラーです。
