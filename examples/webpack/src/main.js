@@ -1,6 +1,7 @@
-import ShuffleText from "shuffle-text";
+import ShuffleText from 'shuffle-text';
 
 window.addEventListener('load', init);
+
 function init() {
   var effectList = [];
   var elementList = document.querySelectorAll('.my-effect');
