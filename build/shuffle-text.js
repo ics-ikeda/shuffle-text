@@ -43,6 +43,7 @@
 	        this._timeCurrent = 0;
 	        this._timeStart = 0;
 	        this._randomIndex = [];
+	        this._element = null;
 	        this._requestAnimationFrameId = 0;
 	        this._element = element;
 	        this.setText(element.innerHTML);

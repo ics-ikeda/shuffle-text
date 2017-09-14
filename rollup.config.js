@@ -1,21 +1,21 @@
 import typescript from 'rollup-plugin-typescript';
 
 export default {
-  entry: 'src/ShuffleText.ts',
+  input: 'src/ShuffleText.ts',
   indent: '\t',
   plugins: [
     typescript()
   ],
-  sourceMap: true,
-  targets: [
+  sourcemap: true,
+  output: [
     {
       format: 'umd',
-      moduleName: 'ShuffleText',
-      dest: 'build/shuffle-text.js'
+      name: 'ShuffleText',
+      file: 'build/shuffle-text.js'
     },
     {
       format: 'es',
-      dest: 'build/shuffle-text.module.js'
+      file: 'build/shuffle-text.module.js'
     }
   ]
 };

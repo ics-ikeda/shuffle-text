@@ -35,7 +35,7 @@ export default class ShuffleText {
   private _timeCurrent: number = 0;
   private _timeStart: number = 0;
   private _randomIndex: number[] = [];
-  private _element: HTMLElement;
+  private _element: HTMLElement = null;
   private _requestAnimationFrameId: number = 0;
 
 
