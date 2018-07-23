@@ -137,4 +137,3 @@ var ShuffleText = (function () {
 }());
 
 export default ShuffleText;
-//# sourceMappingURL=shuffle-text.module.js.map

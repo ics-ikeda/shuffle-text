@@ -62,5 +62,5 @@ export default class ShuffleText {
      * インターバルハンドラーです。
      * @private
      */
-    private _onInterval();
+    private _onInterval;
 }
