@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "rollup": "^0.41.6",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup": "^0.66.2",
+    "rollup-plugin-node-resolve": "^3.4.0"
   },
   "scripts": {
     "build": "rollup -c"
   },
   "dependencies": {
-    "shuffle-text": "^0.2.1"
+    "shuffle-text": "^0.2.8"
   }
 }

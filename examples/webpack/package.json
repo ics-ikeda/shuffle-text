@@ -1,11 +1,12 @@
 {
   "devDependencies": {
-    "webpack": "^3.5.6"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "shuffle-text": "^0.2.5"
+    "shuffle-text": "^0.2.8"
   }
 }
