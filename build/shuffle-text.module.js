@@ -4,7 +4,7 @@
  * @author Yasunobu Ikeda
  * @since 2012-02-07
  */
-var ShuffleText = (function () {
+var ShuffleText = /** @class */ (function () {
     /**
      * Constructor.
      * @param element DOMエレメントです。
