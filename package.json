@@ -1,15 +1,16 @@
 {
   "name": "shuffle-text",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "repository": "ics-ikeda/shuffle-text",
   "devDependencies": {
     "lite-server": "^2.4.0",
-    "rollup": "^0.63.4",
-    "rollup-plugin-typescript": "^0.8.1",
+    "rollup": "^0.66.2",
+    "rollup-plugin-typescript": "^1.0.0",
     "rollup-watch": "^4.3.1",
-    "typedoc": "^0.11.1",
-    "typescript": "^2.9.2",
-    "uglify-js": "^3.4.5"
+    "tslib": "^1.9.3",
+    "typedoc": "^0.12.0",
+    "typescript": "^3.1.1",
+    "uglify-js": "^3.4.9"
   },
   "main": "build/shuffle-text.js",
   "jsnext:main": "build/shuffle-text.module.js",
