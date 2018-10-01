@@ -7,3 +7,4 @@ thumbs.db
 /build/**.js.map
 /build/shuffle-text.module.js.map
 /build/shuffle-text.js.map
+/src/ShuffleText.js
