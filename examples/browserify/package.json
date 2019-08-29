@@ -3,9 +3,9 @@
     "build": "browserify src/main.js -o build/bundle.js"
   },
   "devDependencies": {
-    "browserify": "^16.2.3"
+    "browserify": "^16.5.0"
   },
   "dependencies": {
-    "shuffle-text": "^0.2.8"
+    "shuffle-text": "^0.3.0"
   }
 }
