@@ -3,7 +3,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.ShuffleText = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * ShuffleText is random text effect class for DOM Elements.
@@ -17,6 +17,7 @@
        * @param element DOMエレメントです。
        */
       function ShuffleText(element) {
+          var _a;
           /**
            * The string for random text.
            * ランダムテキストに用いる文字列です。
@@ -47,7 +48,7 @@
           this._element = null;
           this._requestAnimationFrameId = 0;
           this._element = element;
-          this.setText(element.innerHTML);
+          this.setText((_a = element.textContent) !== null && _a !== void 0 ? _a : "");
       }
       /**
        * Set new strings. テキストを設定します。
@@ -63,9 +64,9 @@
            * @returns {boolean}
            */
           get: function () {
-              return this.isRunning;
+              return this._isRunning;
           },
-          enumerable: true,
+          enumerable: false,
           configurable: true
       });
       /** Play effect. 再生を開始します。 */
@@ -84,7 +85,9 @@
           this._requestAnimationFrameId = requestAnimationFrame(function () {
               _this._onInterval();
           });
-          this._element.innerHTML = str;
+          if (this._element) {
+              this._element.textContent = str;
+          }
       };
       /** Stop effect. 停止します。 */
       ShuffleText.prototype.stop = function () {
@@ -97,15 +100,13 @@
        */
       ShuffleText.prototype.dispose = function () {
           cancelAnimationFrame(this._requestAnimationFrameId);
-          this.sourceRandomCharacter = null;
-          this.emptyCharacter = null;
           this._isRunning = false;
           this.duration = 0;
-          this._originalStr = null;
+          this._originalStr = "";
           this._originalLength = 0;
           this._timeCurrent = 0;
           this._timeStart = 0;
-          this._randomIndex = null;
+          this._randomIndex = [];
           this._element = null;
           this._requestAnimationFrameId = 0;
       };
@@ -133,8 +134,10 @@
               str = this._originalStr;
               this._isRunning = false;
           }
-          this._element.innerHTML = str;
-          if (this._isRunning === true) {
+          if (this._element) {
+              this._element.textContent = str;
+          }
+          if (this._isRunning) {
               this._requestAnimationFrameId = requestAnimationFrame(function () {
                   _this._onInterval();
               });
@@ -145,7 +148,7 @@
 
   return ShuffleText;
 
-}));
+})));
 
 },{}],2:[function(require,module,exports){
 var ShuffleText = require('shuffle-text');
