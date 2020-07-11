@@ -11,7 +11,7 @@ export default class ShuffleText {
    * @type {string}
    * @default 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
    */
-  public sourceRandomCharacter: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  public sourceRandomCharacter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
   /**
    * The string for effect space.
@@ -19,7 +19,7 @@ export default class ShuffleText {
    * @type {string}
    * @default '-'
    */
-  public emptyCharacter: string = '-';
+  public emptyCharacter: string = "-";
 
   /**
    * The milli seconds of effect time.
@@ -30,14 +30,13 @@ export default class ShuffleText {
   public duration: number = 600;
 
   private _isRunning: boolean = false;
-  private _originalStr: string = '';
+  private _originalStr: string = "";
   private _originalLength: number = 0;
   private _timeCurrent: number = 0;
   private _timeStart: number = 0;
   private _randomIndex: number[] = [];
-  private _element: HTMLElement = null;
+  private _element: HTMLElement | null = null;
   private _requestAnimationFrameId: number = 0;
-
 
   /**
    * Constructor.
@@ -45,7 +44,7 @@ export default class ShuffleText {
    */
   constructor(element: HTMLElement) {
     this._element = element;
-    this.setText(element.innerHTML);
+    this.setText(element.textContent ?? "");
   }
 
   /**
@@ -62,7 +61,7 @@ export default class ShuffleText {
    * @returns {boolean}
    */
   public get isRunning(): boolean {
-    return this.isRunning;
+    return this._isRunning;
   }
 
   /** Play effect. 再生を開始します。 */
@@ -70,7 +69,7 @@ export default class ShuffleText {
     this.stop();
 
     this._randomIndex = [];
-    let str = '';
+    let str = "";
     for (let i = 0; i < this._originalLength; i++) {
       let rate = i / this._originalLength;
       this._randomIndex[i] = Math.random() * (1 - rate) + rate;
@@ -84,7 +83,9 @@ export default class ShuffleText {
       this._onInterval();
     });
 
-    this._element.innerHTML = str;
+    if (this._element) {
+      this._element.textContent = str;
+    }
   }
 
   /** Stop effect. 停止します。 */
@@ -100,15 +101,13 @@ export default class ShuffleText {
   public dispose(): void {
     cancelAnimationFrame(this._requestAnimationFrameId);
 
-    this.sourceRandomCharacter = null;
-    this.emptyCharacter = null;
     this._isRunning = false;
     this.duration = 0;
-    this._originalStr = null;
+    this._originalStr = "";
     this._originalLength = 0;
     this._timeCurrent = 0;
     this._timeStart = 0;
-    this._randomIndex = null;
+    this._randomIndex = [];
     this._element = null;
     this._requestAnimationFrameId = 0;
   }
@@ -121,14 +120,16 @@ export default class ShuffleText {
     this._timeCurrent = new Date().getTime() - this._timeStart;
     const percent = this._timeCurrent / this.duration;
 
-    let str = '';
+    let str = "";
     for (let i = 0; i < this._originalLength; i++) {
       if (percent >= this._randomIndex[i]) {
         str += this._originalStr.charAt(i);
       } else if (percent < this._randomIndex[i] / 3) {
         str += this.emptyCharacter;
       } else {
-        str += this.sourceRandomCharacter.charAt(Math.floor(Math.random() * (this.sourceRandomCharacter.length)));
+        str += this.sourceRandomCharacter.charAt(
+          Math.floor(Math.random() * this.sourceRandomCharacter.length)
+        );
       }
     }
 
@@ -136,9 +137,11 @@ export default class ShuffleText {
       str = this._originalStr;
       this._isRunning = false;
     }
-    this._element.innerHTML = str;
+    if (this._element) {
+      this._element.textContent = str;
+    }
 
-    if (this._isRunning === true) {
+    if (this._isRunning) {
       this._requestAnimationFrameId = requestAnimationFrame(() => {
         this._onInterval();
       });
