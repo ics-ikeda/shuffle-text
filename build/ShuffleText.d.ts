@@ -48,7 +48,7 @@ export default class ShuffleText {
      * It is running flag. 再生中かどうかを示すブール値です。
      * @returns {boolean}
      */
-    readonly isRunning: boolean;
+    get isRunning(): boolean;
     /** Play effect. 再生を開始します。 */
     start(): void;
     /** Stop effect. 停止します。 */
