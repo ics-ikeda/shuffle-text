@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "strict": true,
+    // 未使用のlocal変数に関するエラー
+    "noUnusedLocals": true,
+    // 未使用のパラメーターに関するエラー
+    "noUnusedParameters": true,
+    // 関数内のすべてのコードパスが値を返さない場合にエラー
+    "noImplicitReturns": true,
+    // switchステートメントでフォールスルーケースのエラーを報告
+    "noFallthroughCasesInSwitch": true,
     "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": false,
@@ -10,7 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
     ]
   },

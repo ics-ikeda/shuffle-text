@@ -2,11 +2,9 @@ import typescript from 'rollup-plugin-typescript';
 
 export default {
   input: 'src/ShuffleText.ts',
-  indent: '\t',
   plugins: [
     typescript()
   ],
-  sourcemap: true,
   output: [
     {
       format: 'umd',
