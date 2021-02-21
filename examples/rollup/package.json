@@ -1,6 +1,9 @@
 {
+  "name": "rollup-example",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
-    "rollup": "^2.21.0",
+    "rollup": "^2.39.0",
     "rollup-plugin-node-resolve": "^5.2.0"
   },
   "scripts": {
