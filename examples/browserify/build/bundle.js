@@ -1,4 +1,35 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+var ShuffleText = require('shuffle-text');
+
+window.addEventListener('load', init);
+function init() {
+  var effectList = [];
+  var elementList = document.querySelectorAll('.my-effect');
+
+  for (var i = 0; i < elementList.length; i++) {
+
+    var element = elementList[i];
+    element.dataset.index = i;
+
+    // インスタンスを取得する
+    effectList[i] = new ShuffleText(element);
+
+    // マウスオーバー時に再生する
+    element.addEventListener('mouseenter', function () {
+      effectList[+this.dataset.index].start();
+    });
+
+    // マウスアウト時に再生する
+    element.addEventListener('mouseleave', function () {
+      effectList[+this.dataset.index].start();
+    });
+
+    // 初回を再生する
+    effectList[i].start();
+  }
+}
+
+},{"shuffle-text":2}],2:[function(require,module,exports){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -150,35 +181,4 @@
 
 })));
 
-},{}],2:[function(require,module,exports){
-var ShuffleText = require('shuffle-text');
-
-window.addEventListener('load', init);
-function init() {
-  var effectList = [];
-  var elementList = document.querySelectorAll('.my-effect');
-
-  for (var i = 0; i < elementList.length; i++) {
-
-    var element = elementList[i];
-    element.dataset.index = i;
-
-    // インスタンスを取得する
-    effectList[i] = new ShuffleText(element);
-
-    // マウスオーバー時に再生する
-    element.addEventListener('mouseenter', function () {
-      effectList[+this.dataset.index].start();
-    });
-
-    // マウスアウト時に再生する
-    element.addEventListener('mouseleave', function () {
-      effectList[+this.dataset.index].start();
-    });
-
-    // 初回を再生する
-    effectList[i].start();
-  }
-}
-
-},{"shuffle-text":1}]},{},[2]);
+},{}]},{},[1]);
