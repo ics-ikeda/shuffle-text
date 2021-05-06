@@ -20,14 +20,14 @@
              * @type {string}
              * @default 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
              */
-            this.sourceRandomCharacter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+            this.sourceRandomCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             /**
              * The string for effect space.
              * 空白に用いる文字列です。
              * @type {string}
              * @default '-'
              */
-            this.emptyCharacter = '-';
+            this.emptyCharacter = "-";
             /**
              * The milli seconds of effect time.
              * エフェクトの実行時間（ミリ秒）です。
@@ -36,7 +36,7 @@
              */
             this.duration = 600;
             this._isRunning = false;
-            this._originalStr = '';
+            this._originalStr = "";
             this._originalLength = 0;
             this._timeCurrent = 0;
             this._timeStart = 0;
@@ -70,7 +70,7 @@
             var _this = this;
             this.stop();
             this._randomIndex = [];
-            var str = '';
+            var str = "";
             for (var i = 0; i < this._originalLength; i++) {
                 var rate = i / this._originalLength;
                 this._randomIndex[i] = Math.random() * (1 - rate) + rate;
@@ -114,7 +114,7 @@
             var _this = this;
             this._timeCurrent = new Date().getTime() - this._timeStart;
             var percent = this._timeCurrent / this.duration;
-            var str = '';
+            var str = "";
             for (var i = 0; i < this._originalLength; i++) {
                 if (percent >= this._randomIndex[i]) {
                     str += this._originalStr.charAt(i);
@@ -123,7 +123,7 @@
                     str += this.emptyCharacter;
                 }
                 else {
-                    str += this.sourceRandomCharacter.charAt(Math.floor(Math.random() * (this.sourceRandomCharacter.length)));
+                    str += this.sourceRandomCharacter.charAt(Math.floor(Math.random() * this.sourceRandomCharacter.length));
                 }
             }
             if (percent > 1) {

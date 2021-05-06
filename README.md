@@ -81,7 +81,7 @@ Constructor
 new ShuffleText(element)
 ```
 
-[API Reference](https://ics-ikeda.github.io/shuffle-text/docs/classes/_shuffletext_.shuffletext.html) is here.
+[API Reference](https://ics-ikeda.github.io/shuffle-text/docs/) is here.
 
 
 

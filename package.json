@@ -1,17 +1,18 @@
 {
   "name": "shuffle-text",
-  "version": "0.3.2",
+  "version": "0.3.4",
+  "description": "This is the JavaScript library for text effect such as Flash contents.",
   "repository": "ics-ikeda/shuffle-text",
   "devDependencies": {
-    "lite-server": "^2.6.1",
-    "prettier": "^2.2.1",
-    "rollup": "^2.39.0",
-    "rollup-plugin-typescript": "^1.0.1",
-    "rollup-watch": "^4.3.1",
-    "tslib": "^2.1.0",
-    "typedoc": "^0.20.27",
-    "typescript": "^4.1.5",
-    "uglify-js": "^3.12.8"
+    "lite-server": "2.6.1",
+    "prettier": "2.2.1",
+    "rollup": "2.47.0",
+    "rollup-plugin-typescript": "1.0.1",
+    "rollup-watch": "4.3.1",
+    "tslib": "2.2.0",
+    "typedoc": "0.20.36",
+    "typescript": "4.2.4",
+    "uglify-js": "3.13.5"
   },
   "main": "build/shuffle-text.js",
   "jsnext:main": "build/shuffle-text.module.js",
