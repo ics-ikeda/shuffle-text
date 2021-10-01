@@ -19,7 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "lib": [
-      "es2020",
+      "es2021",
       "dom"
     ]
   },

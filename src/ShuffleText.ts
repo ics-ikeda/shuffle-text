@@ -1,7 +1,7 @@
 /**
  * ShuffleText is random text effect class for DOM Elements.
  * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
- * @author Yasunobu Ikeda
+ * @author IKEDA Yasunobu
  * @since 2012-02-07
  */
 export default class ShuffleText {

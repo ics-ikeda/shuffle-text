@@ -2,12 +2,12 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ShuffleText = factory());
-}(this, (function () { 'use strict';
+})(this, (function () { 'use strict';
 
   /**
    * ShuffleText is random text effect class for DOM Elements.
    * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
-   * @author Yasunobu Ikeda
+   * @author IKEDA Yasunobu
    * @since 2012-02-07
    */
   var ShuffleText = /** @class */ (function () {
@@ -147,4 +147,4 @@
 
   return ShuffleText;
 
-})));
+}));
