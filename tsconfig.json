@@ -9,7 +9,7 @@
     "noImplicitReturns": true,
     // switchステートメントでフォールスルーケースのエラーを報告
     "noFallthroughCasesInSwitch": true,
-    "module": "es2015",
+    "module": "ES2020",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "removeComments": false,
@@ -19,7 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "lib": [
-      "es2021",
+      "ES2021",
       "dom"
     ]
   },
