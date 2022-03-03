@@ -40,28 +40,41 @@
   <style>
     body {
       font-family: 'Ropa Sans', sans-serif;
+      background: #222;
+      padding: 64px;
     }
 
     h1 {
       font-size: 16px;
       cursor: pointer;
-      color: #900;
+      color: #800;
+      transition: 1.2s linear;
+    }
+    h1:hover {
+      color: #F00;
+      transition: 0.05s linear;;
     }
 
     p, li {
       font-size: 12px;
       cursor: pointer;
-      color: #333;
+      color: #888;
+      transition: 1.2s linear;
     }
 
     li:hover {
-      color: #900;
+      color: #FFF;
+      transition: 0.05s linear;
     }
 
     ul {
       list-style-position: inside;
       padding: 0;
       line-height: 2;
+    }
+
+    a {
+      color: inherit;
     }
 
     @media (min-width: 700px) {
