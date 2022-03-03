@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "webpack": "^5.36.2",
-    "webpack-cli": "^4.6.0"
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "shuffle-text": "^0.3.2"
+    "shuffle-text": "^0.3.5"
   }
 }
