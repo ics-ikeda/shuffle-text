@@ -1,6 +1,6 @@
 {
   "name": "shuffle-text",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "scripts": {
     "lite": "lite-server",
     "release": "rollup -c && uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
