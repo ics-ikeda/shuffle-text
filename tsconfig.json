@@ -15,7 +15,7 @@
     "removeComments": false,
     "sourceMap": true,
     "declaration": true,
-    "target": "es5",
+    "target": "ES2018",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "lib": [
