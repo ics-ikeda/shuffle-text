@@ -1,5 +1,5 @@
 /**
- * ShuffleText is random text effect class for DOM Elements.
+ * ShuffleText is random text effect class for DOM Elements.<br />
  * ShuffleTextはDOMエレメント用ランダムテキストクラスです。
  * @author IKEDA Yasunobu
  * @since 2012-02-07
@@ -14,17 +14,15 @@ export default class ShuffleText {
   public sourceRandomCharacter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
   /**
-   * The string for effect space.
+   * The string for effect space.<br />
    * 空白に用いる文字列です。
-   * @type {string}
    * @default '-'
    */
   public emptyCharacter: string = "-";
 
   /**
-   * The milli seconds of effect time.
+   * The milli seconds of effect time.<br />
    * エフェクトの実行時間（ミリ秒）です。
-   * @type {number}
    * @default 600
    */
   public duration: number = 600;
@@ -39,7 +37,6 @@ export default class ShuffleText {
   private _requestAnimationFrameId: number = 0;
 
   /**
-   * Constructor.
    * @param element DOMエレメントです。
    */
   constructor(element: HTMLElement) {
@@ -48,7 +45,8 @@ export default class ShuffleText {
   }
 
   /**
-   * Set new strings. テキストを設定します。
+   * Set new strings. <br />
+   * テキストを設定します。
    * @param text テキスト文字列です。
    */
   public setText(text: string): void {
@@ -57,14 +55,18 @@ export default class ShuffleText {
   }
 
   /**
-   * It is running flag. 再生中かどうかを示すブール値です。
+   * It is running flag. <br />
+   * 再生中かどうかを示すブール値です。
    * @returns {boolean}
    */
   public get isRunning(): boolean {
     return this._isRunning;
   }
 
-  /** Play effect. 再生を開始します。 */
+  /**
+   * Play effect. <br />
+   * 再生を開始します。
+   */
   public start(): void {
     this.stop();
 
@@ -88,14 +90,17 @@ export default class ShuffleText {
     }
   }
 
-  /** Stop effect. 停止します。 */
+  /**
+   * Stop effect.<br />
+   * 停止します。
+   */
   public stop(): void {
     this._isRunning = false;
     cancelAnimationFrame(this._requestAnimationFrameId);
   }
 
   /**
-   * Dispose this instance.
+   * Dispose this instance.<br />
    * メモリ解放のためインスタンスを破棄します。
    */
   public dispose(): void {
@@ -114,7 +119,6 @@ export default class ShuffleText {
 
   /**
    * インターバルハンドラーです。
-   * @private
    */
   private _onInterval(): void {
     this._timeCurrent = new Date().getTime() - this._timeStart;
