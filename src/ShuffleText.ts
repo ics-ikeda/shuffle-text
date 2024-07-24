@@ -132,7 +132,7 @@ export default class ShuffleText {
         str += this.emptyCharacter;
       } else {
         str += this.sourceRandomCharacter.charAt(
-          Math.floor(Math.random() * this.sourceRandomCharacter.length)
+          Math.floor(Math.random() * this.sourceRandomCharacter.length),
         );
       }
     }

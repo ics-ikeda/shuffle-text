@@ -28,7 +28,7 @@ $ npm install shuffle-text
 If you use this js library in es6.
 
 ```js
-import ShuffleText from 'shuffle-text';
+import ShuffleText from "shuffle-text";
 ```
 
 ## Demo
