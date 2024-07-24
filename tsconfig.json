@@ -15,12 +15,12 @@
     "removeComments": false,
     "sourceMap": true,
     "declaration": true,
-    "target": "ES2018",
+    "target": "ES2020",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "lib": [
-      "ES2021",
-      "dom"
+      "ESNext",
+      "DOM"
     ]
   },
   "files": [
