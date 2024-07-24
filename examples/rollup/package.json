@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "rollup": "^2.69.0",
+    "rollup": "^4.19.0",
     "rollup-plugin-node-resolve": "^5.2.0"
   },
   "scripts": {
     "build": "rollup -c"
   },
   "dependencies": {
-    "shuffle-text": "^0.3.5"
-  }
+    "shuffle-text": "^0.4.0"
+  },
+  "type": "module"
 }
