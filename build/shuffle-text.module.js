@@ -9,7 +9,6 @@ class ShuffleText {
      * @param element DOMエレメントです。
      */
     constructor(element) {
-        var _a;
         /**
          * The string for random text.
          * ランダムテキストに用いる文字列です。
@@ -38,7 +37,7 @@ class ShuffleText {
         this._element = null;
         this._requestAnimationFrameId = 0;
         this._element = element;
-        this.setText((_a = element.textContent) !== null && _a !== void 0 ? _a : "");
+        this.setText(element.textContent ?? "");
     }
     /**
      * Set new strings. <br />
