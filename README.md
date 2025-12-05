@@ -7,7 +7,7 @@ ShuffleText
 
 This is the JavaScript library for text effect such as Flash contents.
 
-![](https://github.com/ics-ikeda/shuffle-text/raw/master/images/shuffle-text-example.gif)
+![](./images/shuffle-text-example.gif)
 
 ## Setup
 
@@ -48,8 +48,8 @@ https://ics-ikeda.github.io/shuffle-text/examples/plain/
 <body>
   <h1 id="myText">This is a ShuffleText.js Examle</h1>
   <script>
-    var el = document.getElementById("myText");
-    var text = new ShuffleText(el);
+    const el = document.getElementById("myText");
+    const text = new ShuffleText(el);
     text.start();
   </script>
 </body>
@@ -60,15 +60,15 @@ https://ics-ikeda.github.io/shuffle-text/examples/plain/
 
 ![](http://clockmaker.jp/labs/_labs/images/preview_160208.jpg)
 
-[ClockMaker Labs \- Interaction Design × Web Technology](http://clockmaker.jp/labs/)
+[ClockMaker Labs \- Interaction Design × Web Technology](https://labs.clockmaker.jp/)
 
 ![](http://beautifl.net/imgs/summary_large_image.png)
 
-[Beautifl \- Flash Gallery of wonderfl](http://beautifl.net/)
+[Beautifl \- Flash Gallery of wonderfl](https://beautifl.net/)
 
 ![](http://ics-web.jp/imgs/140220_pollenmap_4.png)
 
-[日本全国花粉飛散マップ Pollen Map in Japan \| ICS](http://ics-web.jp/projects/pollenmap/)
+[日本全国花粉飛散マップ Pollen Map in Japan \| ICS](https://ics-web.jp/projects/pollenmap/)
 
 
 ## APIs
@@ -87,7 +87,3 @@ new ShuffleText(element)
 [npm-badge-url]: https://www.npmjs.com/package/shuffle-text
 [license-badge]: https://img.shields.io/npm/l/shuffle-text.svg
 [license-badge-url]: ./LICENSE
-[dependencies-badge]: https://img.shields.io/david/ics-ikeda/shuffle-text.svg
-[dependencies-badge-url]: https://david-dm.org/ics-ikeda/shuffle-text
-[devDependencies-badge]: https://img.shields.io/david/dev/ics-ikeda/shuffle-text.svg
-[devDependencies-badge-url]: https://david-dm.org/ics-ikeda/shuffle-text#info=devDependencies
