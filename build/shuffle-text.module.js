@@ -28,6 +28,18 @@ class ShuffleText {
          * @default 600
          */
         this.duration = 600;
+        /**
+         * Controls which character pool is used for random characters during the effect.
+         * Use ShuffleText.MODE constants to set this value.
+         * @default ShuffleText.MODE.CHARS
+         */
+        this.characterMode = ShuffleText.MODE.CHARS;
+        /**
+         * Unicode code point ranges to draw from when characterMode is RANGES or MIXED.
+         * Each entry is a [start, end] inclusive tuple. Use ShuffleText.RANGES presets or provide custom tuples.
+         * @default []
+         */
+        this.unicodeRanges = [];
         this._isRunning = false;
         this._originalStr = "";
         this._originalLength = 0;
@@ -102,6 +114,34 @@ class ShuffleText {
         this._element = null;
         this._requestAnimationFrameId = 0;
     }
+    _randomCharFromRanges() {
+        const total = this.unicodeRanges.reduce((sum, r) => sum + r[1] - r[0] + 1, 0);
+        let pick = Math.floor(Math.random() * total);
+        for (const range of this.unicodeRanges) {
+            const size = range[1] - range[0] + 1;
+            if (pick < size)
+                return String.fromCodePoint(range[0] + pick);
+            pick -= size;
+        }
+        return String.fromCodePoint(this.unicodeRanges[this.unicodeRanges.length - 1][1]);
+    }
+    /** @internal */
+    _getRandomChar() {
+        const mode = this.characterMode;
+        const hasRanges = this.unicodeRanges.length > 0;
+        if (mode === ShuffleText.MODE.RANGES) {
+            return hasRanges
+                ? this._randomCharFromRanges()
+                : this.sourceRandomCharacter.charAt(Math.floor(Math.random() * this.sourceRandomCharacter.length));
+        }
+        if (mode === ShuffleText.MODE.MIXED && hasRanges) {
+            // 50/50 split: proportional weighting would make sourceRandomCharacter invisible with large CJK ranges
+            return Math.random() < 0.5
+                ? this._randomCharFromRanges()
+                : this.sourceRandomCharacter.charAt(Math.floor(Math.random() * this.sourceRandomCharacter.length));
+        }
+        return this.sourceRandomCharacter.charAt(Math.floor(Math.random() * this.sourceRandomCharacter.length));
+    }
     /**
      * インターバルハンドラーです。
      */
@@ -117,7 +157,7 @@ class ShuffleText {
                 str += this.emptyCharacter;
             }
             else {
-                str += this.sourceRandomCharacter.charAt(Math.floor(Math.random() * this.sourceRandomCharacter.length));
+                str += this._getRandomChar();
             }
         }
         if (percent > 1) {
@@ -134,5 +174,38 @@ class ShuffleText {
         }
     }
 }
+/**
+ * Character mode constants for controlling the random character source.
+ * @see characterMode
+ */
+ShuffleText.MODE = {
+    CHARS: 'chars',
+    RANGES: 'ranges',
+    MIXED: 'mixed',
+};
+/**
+ * Predefined Unicode code point ranges, grouped by script.
+ * Each entry is a `[start, end]` inclusive tuple.
+ * @see unicodeRanges
+ */
+ShuffleText.RANGES = {
+    CJK: {
+        RARE_A: [0x3400, 0x4dbf],
+        COMPAT: [0xf900, 0xfaff],
+        RADICALS: [0x2e80, 0x2eff],
+        KANGXI: [0x2f00, 0x2fdf],
+        UNIFIED: [0x4e00, 0x9fff],
+    },
+    EMOJI: {
+        EMOTICONS: [0x1F600, 0x1F64F],
+        SYMBOLS: [0x1F300, 0x1F5FF],
+        TRANSPORT: [0x1F680, 0x1F6FF],
+        PEOPLE: [0x1F900, 0x1F9FF],
+        MISC: [0x2600, 0x26FF],
+    },
+    HIEROGLYPHS: {
+        EGYPTIAN: [0x13000, 0x1342F],
+    },
+};
 
 export { ShuffleText as default };

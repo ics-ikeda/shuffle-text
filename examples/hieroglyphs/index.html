@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- Hieroglyph rendering requires a font with Egyptian Hieroglyph support,
+     such as Noto Sans Egyptian Hieroglyphs. Most systems will show boxes
+     without such a font installed. -->
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8"/>
+  <title>shuffle-text Egyptian Hieroglyphs example</title>
+  <meta name="google" content="notranslate"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="../../build/shuffle-text.js"></script>
+  <script>
+    window.addEventListener("load", init);
+
+    function init() {
+      for (const element of document.querySelectorAll(".my-effect")) {
+        const section = element.closest("[data-mode]");
+        const effect = new ShuffleText(element);
+
+        const mode = section?.dataset.mode ?? "ranges";
+        effect.characterMode = mode;
+
+        if (mode === "ranges" || mode === "mixed") {
+          effect.unicodeRanges = [ShuffleText.RANGES.HIEROGLYPHS.EGYPTIAN];
+        }
+        if (mode === "mixed") {
+          effect.sourceRandomCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+
+        effect.emptyCharacter = "·";
+        element.addEventListener("mouseenter", () => effect.start());
+        effect.start();
+      }
+    }
+  </script>
+  <style>
+    body {
+      display: grid;
+      align-content: center;
+      justify-content: start;
+      min-block-size: 100vh;
+      margin: 0;
+      padding: 48px;
+      gap: 24px;
+      background: #0a0804;
+      color: #c8a96e;
+      font-family: "Noto Sans Egyptian Hieroglyphs", "Segoe UI Historic", serif;
+    }
+
+    .demo-grid {
+      display: grid;
+      gap: 40px 64px;
+
+      @media (width >= 900px) {
+        grid-template-columns: repeat(2, max-content);
+      }
+    }
+
+    section {
+      display: grid;
+      gap: 24px;
+    }
+
+    :is(h1, h2, p) {
+      margin: 0;
+      cursor: pointer;
+      line-height: 1.8;
+      letter-spacing: 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    :is(h1, h2) {
+      color: #e8c87e;
+      letter-spacing: 0.1em;
+    }
+
+    p {
+      max-inline-size: 640px;
+      color: #9a7a4a;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+<h1 class="my-effect" data-mode="ranges">Egyptian Hieroglyphs Shuffle</h1>
+<div class="demo-grid">
+  <section data-mode="ranges">
+    <h2 class="my-effect">RANGES MODE</h2>
+    <p class="my-effect">Random glyphs from the Egyptian Hieroglyphs block.</p>
+    <p class="my-effect">Hover to replay the effect.</p>
+  </section>
+  <section data-mode="mixed">
+    <h2 class="my-effect">MIXED MODE</h2>
+    <p class="my-effect">Hieroglyphs and Latin letters at fifty-fifty odds.</p>
+    <p class="my-effect">Move the pointer to replay the mixed effect.</p>
+  </section>
+</div>
+</body>
+</html>

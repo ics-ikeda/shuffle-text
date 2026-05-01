@@ -6,6 +6,29 @@
  */
 export default class ShuffleText {
     /**
+     * Character mode constants for controlling the random character source.
+     * @see characterMode
+     */
+    static readonly MODE: {
+        readonly CHARS: "chars";
+        readonly RANGES: "ranges";
+        readonly MIXED: "mixed";
+    };
+    /**
+     * Predefined Unicode code point ranges, grouped by script.
+     * Each entry is a `[start, end]` inclusive tuple.
+     * @see unicodeRanges
+     */
+    static readonly RANGES: {
+        readonly CJK: {
+            readonly RARE_A: [number, number];
+            readonly COMPAT: [number, number];
+            readonly RADICALS: [number, number];
+            readonly KANGXI: [number, number];
+            readonly UNIFIED: [number, number];
+        };
+    };
+    /**
      * The string for random text.
      * ランダムテキストに用いる文字列です。
      * @type {string}
@@ -24,6 +47,18 @@ export default class ShuffleText {
      * @default 600
      */
     duration: number;
+    /**
+     * Controls which character pool is used for random characters during the effect.
+     * Use ShuffleText.MODE constants to set this value.
+     * @default ShuffleText.MODE.CHARS
+     */
+    characterMode: (typeof ShuffleText.MODE)[keyof typeof ShuffleText.MODE];
+    /**
+     * Unicode code point ranges to draw from when characterMode is RANGES or MIXED.
+     * Each entry is a [start, end] inclusive tuple. Use ShuffleText.RANGES presets or provide custom tuples.
+     * @default []
+     */
+    unicodeRanges: [number, number][];
     private _isRunning;
     private _originalStr;
     private _originalLength;
@@ -63,6 +98,9 @@ export default class ShuffleText {
      * メモリ解放のためインスタンスを破棄します。
      */
     dispose(): void;
+    private _randomCharFromRanges;
+    /** @internal */
+    _getRandomChar(): string;
     /**
      * インターバルハンドラーです。
      */

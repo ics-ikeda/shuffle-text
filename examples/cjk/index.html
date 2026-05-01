@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh" translate="no">
+<head>
+  <meta charset="UTF-8"/>
+  <title>shuffle-text CJK character example</title>
+  <meta name="google" content="notranslate"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <script src="../../build/shuffle-text.js"></script>
+  <script>
+    window.addEventListener("load", init);
+
+    function init() {
+      for (const element of document.querySelectorAll(".my-effect")) {
+        const section = element.closest("[data-mode]");
+        const effect = new ShuffleText(element);
+
+        const mode = section?.dataset.mode ?? "ranges";
+        effect.characterMode = mode;
+
+        if (mode === "ranges" || mode === "mixed") {
+          effect.unicodeRanges = [
+            ShuffleText.RANGES.CJK.RARE_A,
+            ShuffleText.RANGES.CJK.KANGXI,
+          ];
+        }
+        if (mode === "mixed") {
+          effect.sourceRandomCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+
+        effect.emptyCharacter = "　";
+        element.addEventListener("mouseenter", () => effect.start());
+        effect.start();
+      }
+    }
+  </script>
+  <style>
+    body {
+      display: grid;
+      align-content: center;
+      justify-content: start;
+      min-block-size: 100vh;
+      margin: 0;
+      padding: 48px;
+      gap: 24px;
+      background: #000;
+      color: #e6e6e6;
+      font-family: "Intel One Mono", monospace;
+    }
+
+    .demo-grid {
+      display: grid;
+      gap: 40px 64px;
+
+      @media (width >= 900px) {
+        grid-template-columns: repeat(2, max-content);
+      }
+    }
+
+    section {
+      display: grid;
+      gap: 24px;
+    }
+
+    :is(h1, h2, p) {
+      margin: 0;
+      cursor: pointer;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    :is(h1, h2) {
+      color: #fff;
+      letter-spacing: 0.1em;
+    }
+
+    p {
+      max-inline-size: 640px;
+      color: #b8b8b8;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+<h1 class="my-effect" data-mode="ranges">生僻字洗牌效果</h1>
+<div class="demo-grid">
+  <section data-mode="ranges">
+    <h2 class="my-effect">RANGES 模式</h2>
+    <p class="my-effect">仅使用 CJK 扩展A + 康熙部首范围随机取字。</p>
+    <p class="my-effect">鼠标移入可重播效果。</p>
+  </section>
+  <section data-mode="mixed">
+    <h2 class="my-effect">MIXED 模式</h2>
+    <p class="my-effect">CJK 字符与英文大写字母各占一半随机取字。</p>
+    <p class="my-effect">Move the pointer to replay the mixed effect.</p>
+  </section>
+</div>
+</body>
+</html>
