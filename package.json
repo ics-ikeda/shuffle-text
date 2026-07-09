@@ -25,7 +25,10 @@
   "types": "build/ShuffleText.d.ts",
   "license": "MIT",
   "description": "This is the JavaScript library for text effect such as Flash contents.",
-  "repository": "ics-ikeda/shuffle-text",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ics-ikeda/shuffle-text.git"
+  },
   "author": "IKEDA Yasunobu <ikeda@ics-web.jp> (https://clockmaker.jp/labs/)",
   "homepage": "https://github.com/ics-ikeda/shuffle-text",
   "keywords": [
