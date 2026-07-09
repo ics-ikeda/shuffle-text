@@ -15,6 +15,10 @@
     "typescript": "7.0.2"
   },
   "type": "module",
+  "engines": {
+    "node": ">=24.14.1",
+    "npm": ">=11.10.0"
+  },
   "main": "build/shuffle-text.js",
   "jsnext:main": "build/shuffle-text.module.js",
   "module": "build/shuffle-text.module.js",
