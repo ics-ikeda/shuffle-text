@@ -1,8 +1,5 @@
-"use strict";
-(function(global, factory) {
-	typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define([], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global.ShuffleText = factory());
-})(this, function() {
-	//#region src/ShuffleText.ts
+(function() {
+	//#region ../node_modules/shuffle-text/build/shuffle-text.module.js
 	/**
 	* ShuffleText is random text effect class for DOM Elements.<br />
 	* ShuffleTextはDOMエレメント用ランダムテキストクラスです。
@@ -14,8 +11,24 @@
 		* @param element DOMエレメントです。
 		*/
 		constructor(element) {
+			/**
+			* The string for random text.
+			* ランダムテキストに用いる文字列です。
+			* @type {string}
+			* @default 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+			*/
 			this.sourceRandomCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+			/**
+			* The string for effect space.<br />
+			* 空白に用いる文字列です。
+			* @default '-'
+			*/
 			this.emptyCharacter = "-";
+			/**
+			* The milli seconds of effect time.<br />
+			* エフェクトの実行時間（ミリ秒）です。
+			* @default 600
+			*/
 			this.duration = 600;
 			this._isRunning = false;
 			this._originalStr = "";
@@ -110,5 +123,22 @@
 		}
 	};
 	//#endregion
-	return ShuffleText;
-});
+	//#region src/main.js
+	window.addEventListener("load", init);
+	function init() {
+		/** @type {HTMLElement[]} */
+		const elementList = document.querySelectorAll(".my-effect");
+		for (let i = 0; i < elementList.length; i++) {
+			const element = elementList[i];
+			const effect = new ShuffleText(element);
+			element.addEventListener("mouseenter", () => {
+				effect.start();
+			});
+			element.addEventListener("mouseleave", () => {
+				effect.start();
+			});
+			effect.start();
+		}
+	}
+	//#endregion
+})();

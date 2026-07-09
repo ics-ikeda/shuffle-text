@@ -1,22 +1,18 @@
 {
   "name": "shuffle-text",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "scripts": {
-    "release": "rollup -c && uglifyjs ./build/shuffle-text.js --output build/shuffle-text.min.js",
-    "build": "rollup -c",
-    "watch": "rollup -c --watch",
+    "build": "rolldown -c rolldown.config.js",
+    "watch": "rolldown -c rolldown.config.js --watch",
     "build:d.ts": "tsc --emitDeclarationOnly --declarationDir ./build",
-    "build:docs": "typedoc --out ./docs ./src/ShuffleText.ts",
-    "format": "prettier --write 'src/**/*.ts'"
+    "build:docs": "typedoc --html ./docs ./src/ShuffleText.ts",
+    "format": "oxfmt --write 'src/**/*.ts'"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "12.3.0",
-    "prettier": "3.8.3",
-    "rollup": "4.60.2",
-    "tslib": "2.8.1",
-    "typedoc": "0.28.19",
-    "typescript": "6.0.3",
-    "uglify-js": "3.19.3"
+    "oxfmt": "0.58.0",
+    "rolldown": "1.1.5",
+    "typedoc": "1.0.0-dev.4",
+    "typescript": "7.0.2"
   },
   "type": "module",
   "main": "build/shuffle-text.js",

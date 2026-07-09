@@ -9,5 +9,5 @@ thumbs.db
 /build/shuffle-text.js.map
 /src/ShuffleText.js
 /examples/browserify/yarn.lock
-/examples/rollup/yarn.lock
+/examples/rolldown/yarn.lock
 /examples/webpack/yarn.lock

@@ -1,33 +1,25 @@
 {
   "compilerOptions": {
-    "strict": true,
-    // 未使用のlocal変数に関するエラー
-    "noUnusedLocals": true,
-    // 未使用のパラメーターに関するエラー
-    "noUnusedParameters": true,
-    // 関数内のすべてのコードパスが値を返さない場合にエラー
-    "noImplicitReturns": true,
-    // switchステートメントでフォールスルーケースのエラーを報告
-    "noFallthroughCasesInSwitch": true,
-    "module": "ES2020",
-    "moduleResolution": "bundler",
-    "noImplicitAny": false,
-    "removeComments": false,
-    "sourceMap": true,
     "declaration": true,
-    "rootDir": "./src",
-    "target": "ES2020",
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
+    "isolatedDeclarations": true,
     "lib": [
-      "ESNext",
+      "ES2020",
       "DOM"
-    ]
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2020",
+    "verbatimModuleSyntax": true
   },
-  "files": [
-    "src/ShuffleText.ts"
-  ],
-  "exclude": [
-    "node_modules"
+  "include": [
+    "src/**/*.ts"
   ]
 }
